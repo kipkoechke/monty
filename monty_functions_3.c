@@ -32,3 +32,24 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 
 	printf("%c\n", (*stack)->next->n);
 }
+
+/**
+ * monty_pstr - Prints the string in a stack_t linked list.
+ * @stack: Pointer to the top node of a stack_t linked list.
+ * @line_number: Current line number in the Monty bytecodes file.
+ */
+void monty_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = (*stack)->next;
+
+	while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
+	{
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+	}
+
+	printf("\n");
+
+	(void)line_number;
+}
+
